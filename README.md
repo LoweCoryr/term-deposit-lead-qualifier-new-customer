@@ -1,7 +1,7 @@
 # term-deposit-lead-qualifier-new-customer
 An analysis to qualify prospective new customers, to reach out to for offering a high-rate term deposit offering.
 
-Research Aim:
+* Research Aim:
   * Find New Customers
       * We can use the information we know about existing customers, to specifically target new customers.
       --We know which variables result in customers purchasing term deposit account.
