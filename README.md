@@ -2,7 +2,7 @@
 An analysis to qualify prospective new customers, to reach out to for offering a high-rate term deposit offering.
 
 Research Aim:
-  Find New Customers
+  * Find New Customers
       --We can use the information we know about existing customers, to specifically target new customers.
       --We know which variables result in customers purchasing term deposit account.
         --These customers are super-valuable, as term deposits allow the bank to lend out money at higher rates.
