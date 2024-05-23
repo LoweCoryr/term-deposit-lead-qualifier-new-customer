@@ -1,3 +1,5 @@
+![image header](image001.png)
+
 # Term Deposit Analysis to Calculate Lead Qualifier For New Prospective Customers
 An analysis to qualify prospective new customers, to reach out to for offering a high-rate term deposit offering.
 
@@ -11,3 +13,5 @@ An analysis to qualify prospective new customers, to reach out to for offering a
       
 * Research Objective:
   1. Which customers are the most likely to purchase term deposits?
+
+
