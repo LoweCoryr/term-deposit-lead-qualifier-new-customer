@@ -1,0 +1,20 @@
+---
+title: "EDA"
+author: "Cory Lowe"
+date: "2024-05-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+print("Hello World")
+```
+
+```{r}
+print("updated code")
+```
+
+
