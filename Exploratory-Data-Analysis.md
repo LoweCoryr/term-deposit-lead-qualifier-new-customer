@@ -135,7 +135,7 @@ ggplot() +
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](Exploritory-Data-Analysis_files/figure-gfm/bank%20balance-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/bank%20balance-1.png)<!-- -->
 
 ``` r
 summary(df_bank$balance)
@@ -153,14 +153,14 @@ boxplot(log(df_bank$balance))
     ## Warning in bplt(at[i], wid = width[i], stats = z$stats[, i], out =
     ## z$out[z$group == : Outlier (-Inf) in boxplot 1 is not drawn
 
-![](Exploritory-Data-Analysis_files/figure-gfm/boxplot-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/boxplot-1.png)<!-- -->
 About normally distributed, when taking the logarithm.
 
 ``` r
 hist(df_bank$balance, breaks = 100, xlim = c( -1000, 10000 ), ylim = c(0, 1000))
 ```
 
-![](Exploritory-Data-Analysis_files/figure-gfm/histogram-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/histogram-1.png)<!-- -->
 Zooming in.
 
 \##AGE
@@ -173,7 +173,7 @@ df_bank %>%
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](Exploritory-Data-Analysis_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
 df_bank %>%
@@ -181,7 +181,7 @@ df_bank %>%
   geom_bar()
 ```
 
-![](Exploritory-Data-Analysis_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
 
 ``` r
 df_bank %>%
@@ -213,7 +213,7 @@ df_bank %>%
   geom_bar()
 ```
 
-![](Exploritory-Data-Analysis_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 ##### Jobs
@@ -229,7 +229,7 @@ df_bank %>%
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
 
-![](Exploritory-Data-Analysis_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 \##JOB AGE
 
@@ -246,7 +246,7 @@ df_bank %>%
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
 
-![](Exploritory-Data-Analysis_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 \##TERM DEPOSIT
 
@@ -265,7 +265,7 @@ df_bank %>%
   geom_bar(position = "stack", stat = "identity")
 ```
 
-![](Exploritory-Data-Analysis_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 \##Y Married
 
@@ -280,7 +280,7 @@ df_bank %>%
     ## `summarise()` has grouped output by 'y'. You can override using the `.groups`
     ## argument.
 
-![](Exploritory-Data-Analysis_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 df_bank %>%
@@ -289,7 +289,7 @@ df_bank %>%
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
 ```
 
-![](Exploritory-Data-Analysis_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](Exploratory-Data-Analysis_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 tmp <- df_bank %>%
