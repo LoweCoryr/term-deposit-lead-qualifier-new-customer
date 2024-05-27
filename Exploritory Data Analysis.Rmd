@@ -1,7 +1,50 @@
 ---
 title: "Exploritory Data Analysis"
 output: github_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
+
+# EXECUTIVE SUMMARY
+
+The bank should pursue a marketing campaign strategy where they target retired people to sell term-deposits. This sector converts at 22.79%. Also this sector makes logical sense, as we know this section will have a lot of money to invest, so their investments may be larger.
+
+If the bank wanted to maximize the number of term deposits, they could target many retired people. If they wanted to focus on high ROI (i.e. from high conversion rate), then we could continue to subset retired people, to find sub-sectors that convert at an even higher rate.
+
+# ANALYSIS METHODOLOGY
+
+## RESEARCH AIM: Find New Customers
+
+-   We can use the information we know about existing customers, to
+    specifically target new customers.
+-   We know which variables result in customers purchasing term deposit
+    account.
+-   These customers are super-valuable, as term deposits allow the bank
+    to lend out money at higher rates.
+-   By being specific, we can do a phone and mail campaign, which is
+    expensive in general, but will be highly-targetted, which will keep
+    costs down, and maximize the response rate.
+-   If we use the variables we can purchase from data brokers (i.e.
+    demographics), we could target similar new customers
+
+## RESEARCH OBJECTIVE 1: Determine Which Customers Are the Most Likely to Purchase Term Deposits?
+
+-   **Research Question:** Which variables predict term-deposits?
+
+## STAKEHOLDERS: Bank's marketing team Bank's finance department
+
+## ACTIONABILITY: New outreach campaign
+
+## BUSINESS VALUE: Estimated \$500 in profit, from term deposit customers.
+
+*NOTE: This is made up. In a real business scenario, I would use
+available data to calculate this.*
+
+Estimated \$500 profits, comes from the ability to lend out this money
+and make more profits with other companies.
+
+# ANALYSIS
 
 ```{r libraries}
 library(ggplot2)
@@ -14,15 +57,137 @@ library(dplyr)
 df_bank <- read.csv("bank-full.csv", sep=";")
 ```
 
+## IMPORTING/INSPECTING DATA
+```{r data inspection}
+nrow(df_bank)
+ncol(df_bank)
+str(df_bank)
+```
 
-# Header
-This is copy.
+```{r}
+head(df_bank)
+```
+## BANK BALANCE
+```{r bank balance}
+df_bank %>%
+ggplot() +
+  geom_histogram(aes(x=balance))
+```
 
-## Introduction
+```{r overview}
+summary(df_bank$balance)
+```
 
-This is copy.
+```{r boxplot}
+boxplot(log(df_bank$balance))
+```
+About normally distributed, when taking the logarithm.
 
-### Introduction
-More.
+```{r histogram}
+hist(df_bank$balance, breaks = 100, xlim = c( -1000, 10000 ), ylim = c(0, 1000))
+```
+Zooming in.
 
+##AGE
+```{r}
+df_bank %>%
+  ggplot(aes(x = age)) +
+  geom_histogram( )
+
+df_bank %>%
+  ggplot(aes(x = age)) +
+  geom_bar()
+```
+
+```{r}
+df_bank %>%
+  group_by(age) %>%
+  summarise(counting = n()) %>%
+  arrange(desc(counting))
+```
+
+##JOB
+```{r}
+df_bank %>%
+  ggplot(aes(x = job)) +
+  geom_bar()
+
+```
+
+```{r}
+##### Jobs
+df_bank %>%
+  group_by(job) %>%
+  summarize(job_cn = n()) %>%
+  arrange(-job_cn) %>%
+  mutate(job = factor(job, levels = job)) %>%
+
+                    
+  ggplot() +
+  geom_col(aes(x = job, y = job_cn)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+```
+
+##JOB AGE
+```{r}
+df_bank %>%
+  group_by(job) %>%
+  summarize(avg_age = mean(age)) %>%
+  arrange(avg_age) %>%
+  mutate(job = factor(job, levels = job)) %>%
+
+                    
+  ggplot() +
+  geom_col(aes(x = job, y = avg_age)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+```
+
+
+##TERM DEPOSIT
+```{r}
+summary(factor(df_bank$y))
+```
+```{r}
+df_bank %>%
+  group_by(y) %>%
+  summarise(y_cn = n()) %>%
+  ggplot(aes(fill = y, x = "", y = y_cn)) +
+  geom_bar(position = "stack", stat = "identity")
+```
+
+##Y Married
+```{r}
+df_bank %>%
+  group_by(y, marital) %>%
+  summarise(y_cn = n()) %>%
+  ggplot(aes(fill = y, x = marital, y = y_cn)) +
+  geom_bar(position = "stack", stat = "identity")
+```
+
+```{r}
+df_bank %>%
+  ggplot(aes(x = job)) +
+  geom_bar(aes(fill= y), position="fill") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+```
+
+```{r}
+tmp <- df_bank %>%
+  filter(job == "retired") %>%
+  group_by(y) %>%
+  summarise(retired  = n())
+
+tmp
+```
+
+```{r}
+num <- 516
+den <- (516 + 1748)
+
+retired_y_prop = num / den
+
+retired_y_prop
+```
 
