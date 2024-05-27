@@ -1,0 +1,28 @@
+---
+title: "Exploritory Data Analysis"
+output: github_document
+---
+
+```{r libraries}
+library(ggplot2)
+library(magrittr)
+library(forcats)
+library(dplyr)
+```
+
+```{r sourcing script}
+df_bank <- read.csv("bank-full.csv", sep=";")
+```
+
+
+# Header
+This is copy.
+
+## Introduction
+
+This is copy.
+
+### Introduction
+More.
+
+
